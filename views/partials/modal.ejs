@@ -1,31 +1,56 @@
 <div>
-<form action="/addquote" method="POST">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New quote</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">auther</label>
-                <input type="text" class="form-control" name="author" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">quote:</label>
-                <textarea class="form-control" name="quote" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-    </div>
-    </div>
-    </div>
+ <form  method="POST" id="form">
+                        <div class="modal fade" id="update" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">update quote</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label" >name</label>
+                                               <input type="text" class="form-control" name="name" id="name"  >
+                                            </div>
+                                            <div class="form-group">
+                                                 <label for="message-text" class="col-form-label">quantity</label>
+                                                  <input type="text" class="form-control" name="quantite" id="quantite">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">price</label>
+                                                 <input type="text" class="form-control"  name="prix" id="prix">
+                                            </div>
+                                            <div class="form-group">
+                                                 <label for="message-text" class="col-form-label">rayon Code</label>
+                                                        <select class="form-control" name="code_rayon" id="recipient-name">
+                                                            <% for (let i = 0; i < rayon.length; i++) { %>
+                                                <option value="<%= rayon[i].code_rayon %>"> <%= rayon[i].code_rayon %></option>
+                                              <% } %>
+                                            </select>
+                                            </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">provider reference: </label>
+                                                  <select class="form-control" name="fourniseur_ref" id="recipient-name">
+                                                  <% for (let i = 0; i < fourni.length; i++) { %>
+                                                      <option value="<%= fourni[i].fourniseur_ref %>"> <%= fourni[i].fourniseur_ref %></option>
+                                                    <% } %>
+                                                  </select>
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
   

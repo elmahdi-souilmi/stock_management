@@ -18,8 +18,10 @@
             <li class="list-group-item"> type of aisle is : <%= produit[i].type %> </li>
             <li class="list-group-item"> provided by : <%= produit[i].nom %> </li>
           </ul>
-          <a href="/deletequote/<%= produit[i].code_produit %>" class="btn btn-primary">delete</a>
-            <button  type="button" class="btn btn-primary" data-toggle="modal" onClick='' data-target="#exampleModal" data-whatever="@fat"> UPDATE</button>
+          <a href="/deleteproduit/<%= produit[i].code_produit %>" class="btn btn-primary">delete</a>
+          <button type="button" class="btn btn-primary btn-success add_butt" onClick='test("<%= produit[i].prix %>",
+             "<%=produit[i].quantite %>", "<%=produit[i].name %>" , <%=produit[i].code_produit%>)' data-toggle="modal" data-target="#update" data-whatever="@fat">UPDATE</button>
+           
         </div>
         </div>
 
@@ -27,7 +29,7 @@
    <% } %>
    
       </div>
-    </div>
-    <%- include('partials/modal_add_produit'); -%>
+    </div> 
     <%- include('partials/modal'); -%>
+    <%- include('partials/modal_add_produit'); -%>
     <%- include('partials/foot'); -%>

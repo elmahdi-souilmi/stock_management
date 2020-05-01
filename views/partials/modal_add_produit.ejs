@@ -1,5 +1,5 @@
 <div>
-<form action="/addquote" method="POST">
+<form action="/addproduit" method="POST">
     <div class="modal fade" id="add_produit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -16,25 +16,25 @@
                 <input type="text" class="form-control" name="name" id="recipient-name">
               
                 <label for="message-text" class="col-form-label">quantity</label>
-                <input type="text" class="form-control" name="quantity" id="recipient-name">
+                <input type="text" class="form-control" name="quantite" id="recipient-name">
 
                 <label for="message-text" class="col-form-label">price</label>
-                <input type="text" class="form-control"  name="price" id="recipient-name">
+                <input type="text" class="form-control"  name="prix" id="recipient-name">
 
-                <label for="message-text" class="col-form-label">rayon type</label>
-                <select class="form-control" name="" id="">
-                     <option value=""> a</option>
-                     <option value=""> b</option>
-                     <option value=""> c</option>
+                <label for="message-text" class="col-form-label">rayon Code</label>
+                <select class="form-control" name="code_rayon" id="recipient-name">
+                    <% for (let i = 0; i < rayon.length; i++) { %>
+                     <option value="<%= rayon[i].code_rayon %>"> <%= rayon[i].code_rayon %></option>
+                  <% } %>
+                </select>
                 </select>
 
-                <label for="message-text" class="col-form-label">provider name </label>
-                <select class="form-control" name="" id="recipient-name">
-                     <option value=""> a</option>
-                     <option value=""> b</option>
-                     <option value=""> c</option>
+                <label for="message-text" class="col-form-label">provider reference: </label>
+                <select class="form-control" name="fourniseur_ref" id="recipient-name">
+                <% for (let i = 0; i < fourni.length; i++) { %>
+                     <option value="<%= fourni[i].fourniseur_ref %>"> <%= fourni[i].fourniseur_ref %></option>
+                  <% } %>
                 </select>
-               
               </div>
             </form>
           </div>
