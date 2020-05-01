@@ -1,20 +1,21 @@
 <%- include('partials/head'); -%>
 <%- include('partials/nav'); -%>
-<div class="container-fluid maindiv">
-        <div class="row">
-          <div class="col-sm">
+<div class="container-fluid">
+      <div class="row  row-cols-3  align-items-start ">
+         <div class="col">
             <figure>
                 <img src="https://placebear.com/300/250" alt="Yourtext" />
                 <figcaption> valeur de notre stock : <%= stockval[0].stockval %> DH </figcaption> 
             </figure>
           </div>
-          <div class="col-sm">
+
+          <div class="col">
             <figure>
                 <img src="https://placebear.com/300/250" alt="Yourtext" />
                 <figcaption> we have more than  <%= n_produit[0].n_produit %> product </figcaption> 
             </figure>
           </div>
-          <div class="col-sm">
+          <div class="col">
             <figure>
                 <img src="https://placebear.com/300/250" alt="Yourtext" />
                 <figcaption>  our top produit n_1:   <%= top_produit[0].name %> with: <%= top_produit[0].quantite %> 
@@ -23,26 +24,26 @@
                  </figcaption> 
             </figure>
           </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
+            <div class="col">
                 <figure>
                     <img src="https://placebear.com/300/250" alt="Yourtext" />
                     <figcaption>we have more than  <%= n_rayon[0].n_rayon %> rayon</figcaption> 
                 </figure>
             </div>
-            <div class="col-sm">
+            <div class="col">
                 <figure>
                     <img src="https://placebear.com/300/250" alt="Yourtext" />
                     <figcaption>we have more than  <%= n_fourni[0].n_fourni %> fourniseur</figcaption> 
                 </figure>
             </div>
-            <div class="col-sm">
+            <div class="col">
                 <figure>
                     <img src="https://placebear.com/300/250" alt="Yourtext" />
                     <figcaption> the producte with less stock is <%= less_produit[0].name %> with just: <%= less_produit[0].quantite %> piece </figcaption> 
                 </figure>
             </div>
-          </div>
+       
       </div>
+    </div>
+
       <%- include('partials/foot'); -%>

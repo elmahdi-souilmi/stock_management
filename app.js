@@ -28,7 +28,7 @@ app.use(express.static("public"));
 //to not use .ejs everytime
 app.set("view engine", "ejs");
 //router
-
+//home page 
 app.get('/home', (req, res) => {
     var stockval,n_produit,top_produit,n_rayon,n_fourni,less_produit;
      db.query('SELECT SUM(prix) as stockval FROM produit ', (err, result, fields) => {
@@ -50,7 +50,6 @@ app.get('/home', (req, res) => {
     db.query('SELECT name,quantite FROM produit ORDER BY quantite ASC LIMIT 1', (err, result, fields) => {
         if (err) throw err;
         less_produit = result;
-        console.log(less_produit)
     });
     db.query('SELECT name,quantite FROM produit ORDER BY quantite DESC LIMIT 3', (err, result, fields) => {
         if (err) throw err;
@@ -65,5 +64,18 @@ app.get('/home', (req, res) => {
         })  
     });
 });
+app.get('/our_product', (req, res)=>{
+    var produit;
+    db.query('SELECT produit.* , rayon.type , fourniseur.nom FROM produit INNER JOIN rayon ON produit.code_rayon = rayon.code_rayon INNER JOIN fourniseur ON produit.fourniseur_ref = fourniseur.fourniseur_ref ', (err, result, fields) => {
+        if (err) throw err;
+        produit = result;
+        res.render("our_product", {
+            produit:produit
+            
+        }) 
+         console.log(produit)
+    });
+    
+})
 
 app.listen(port, () => console.log(`it work in 2020!`))

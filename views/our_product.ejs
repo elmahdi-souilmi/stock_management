@@ -1,0 +1,33 @@
+ <%- include('partials/head'); -%>
+<%- include('partials/nav'); -%>
+<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_produit" data-whatever="@fat">ADD produit</button></center> 
+ <div class="container-fluid">
+      <div class="row  row-cols-5  align-items-start ">
+       
+       
+
+  <% for (let i = 0; i < produit.length; i++) { %>
+        
+     <div class="col"><div class="card" style="width: 22rem;">
+          <div class="card-header">
+           <%= produit[i].name %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">prix : <%= produit[i].prix %> </li>
+            <li class="list-group-item"> quantity : <%= produit[i].quantite %> </li>
+            <li class="list-group-item"> type of aisle is : <%= produit[i].type %> </li>
+            <li class="list-group-item"> provided by : <%= produit[i].nom %> </li>
+          </ul>
+          <a href="/deletequote/<%= produit[i].code_produit %>" class="btn btn-primary">delete</a>
+            <button  type="button" class="btn btn-primary" data-toggle="modal" onClick='' data-target="#exampleModal" data-whatever="@fat"> UPDATE</button>
+        </div>
+        </div>
+
+
+   <% } %>
+   
+      </div>
+    </div>
+    <%- include('partials/modal_add_produit'); -%>
+    <%- include('partials/modal'); -%>
+    <%- include('partials/foot'); -%>
