@@ -118,10 +118,43 @@ app.post('/updateproduit/:id', (req, res) => {
     let sql = `UPDATE produit SET quantite = "${newproduit.quantite}", prix = '${newproduit.prix}', name = '${newproduit.name}' WHERE code_produit = ${id}`;
     let query = db.query(sql, (err, result) => {
         if (err) throw err;
-        res.redirect('/our_product') 
+        res.redirect('/our_product')
     })
 })
+app.get('/our_providers', (req, res)=>{
+    db.query(' SELECT * FROM fourniseur', (err, result, fields) => {
+        if (err) throw err;
+        fourniseur= result;
+        res.render("our_providers", {
+            fourniseur:fourniseur
+        }) 
+        console.log(fourniseur)
+    });
+}) 
+app.post('/addprovider', (req, res) => {
+    var newprovider = req.body;
+    let sql = `INSERT INTO fourniseur set ?` 
+   db.query(sql,newprovider,(err, result) => {
+        if (err) throw err;
+        res.redirect('/our_providers')  
 
-
-
+    }) 
+}) 
+app.get('/deletefourniseur/:id', (req, res) => {
+    let sql = `DELETE FROM fourniseur  WHERE fourniseur_ref = ${req.params.id}`;
+    let query = db.query(sql, (err, result) => {
+        if (err) throw err;
+        res.redirect('/our_providers')
+    })
+}) 
+app.post('/updateprovider/:id', (req, res) => {
+    var newprovider = req.body;
+    var id = req.params.id;
+    let sql = `UPDATE fourniseur SET nom = "${newprovider.name}", email = '${newprovider.email}', n_telephone = '${newprovider.n_telephone}', adress = '${newprovider.adress}' WHERE fourniseur_ref = ${id}` ;
+     db.query(sql,(err, result) => {
+        if (err) throw err;
+        res.redirect('/our_providers') 
+        
+    })
+})
 app.listen(port, () => console.log(`it work in 2020!`))

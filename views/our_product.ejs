@@ -19,8 +19,8 @@
             <li class="list-group-item"> provided by : <%= produit[i].nom %> </li>
           </ul>
           <a href="/deleteproduit/<%= produit[i].code_produit %>" class="btn btn-primary">delete</a>
-          <button type="button" class="btn btn-primary btn-success add_butt" onClick='test("<%= produit[i].prix %>",
-             "<%=produit[i].quantite %>", "<%=produit[i].name %>" , <%=produit[i].code_produit%>)' data-toggle="modal" data-target="#update" data-whatever="@fat">UPDATE</button>
+          <button type="button" class="btn btn-primary btn-success add_butt"  data-toggle="modal" onClick='test("<%= produit[i].prix %>",
+      "<%=produit[i].quantite %>", "<%=produit[i].name %>" , <%=produit[i].code_produit%>)' data-target="#update" data-whatever="@fat">UPDATE</button>
            
         </div>
         </div>
@@ -31,5 +31,6 @@
       </div>
     </div> 
     <%- include('partials/modal'); -%>
-    <%- include('partials/modal_add_produit'); -%>
+      <%- include('partials/modal_add_produit'); -%>
+    
     <%- include('partials/foot'); -%>

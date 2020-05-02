@@ -1,0 +1,34 @@
+ <%- include('partials/head'); -%>
+<%- include('partials/nav'); -%>
+<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_providers" data-whatever="@fat">ADD provider</button></center> 
+ <div class="container-fluid">
+      <div class="row  row-cols-5  align-items-start ">
+       
+       
+
+  <% for (let i = 0; i < fourniseur.length; i++) { %>
+        
+     <div class="col"><div class="card" style="width: 22rem;">
+          <div class="card-header">
+           <%= fourniseur[i].nom %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> EMAIL : <%= fourniseur[i].email %> </li>
+            <li class="list-group-item"> phone number : <%= fourniseur[i].n_telephone %> </li>
+            <li class="list-group-item"> provided address : <%= fourniseur[i].adress%> </li>
+          </ul>
+          <a href="/deletefourniseur/<%= fourniseur[i].fourniseur_ref %>" class="btn btn-primary">delete</a>
+          <button type="button" class="btn btn-primary btn-success add_butt" onClick='test1("<%= fourniseur[i].nom %>",
+          "<%=fourniseur[i].email %>", "<%=fourniseur[i].n_telephone %>" ,"<%=fourniseur[i].adress %>" , <%=fourniseur[i].fourniseur_ref%>)' data-toggle="modal" data-target="#update_providers" data-whatever="@fat">UPDATE</button>
+
+        </div>
+        </div>
+   <% } %>
+   
+      </div>
+    </div> 
+     <%- include('partials/modal_update_providers'); -%>
+    <%- include('partials/modal_add_providers'); -%>
+     
+    
+    <%- include('partials/foot'); -%>
