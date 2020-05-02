@@ -64,6 +64,7 @@ app.get('/home', (req, res) => {
         })  
     });
 });
+//our_product page
 app.get('/our_product', (req, res)=>{
     var produit,rayon;
     db.query('SELECT fourniseur_ref FROM fourniseur', (err, result, fields) => {
@@ -83,19 +84,20 @@ app.get('/our_product', (req, res)=>{
             fourni:fourni,
             rayon:rayon
         }) 
+        console.log(produit)
     });
 }) 
-app.get('/our_product', (req, res)=>{
-    db.query('SELECT prodiseur.fourniseur_ref ', (err, result, fields) => {
-        if (err) throw err;
-        produit = result;
-        res.render("our_product", {
-            produit:produit,
-            fourni:fourni,
-            rayon:rayon
-        }) 
-    });
-}) 
+// app.get('/our_product', (req, res)=>{
+//     db.query('SELECT prodiseur.fourniseur_ref ', (err, result, fields) => {
+//         if (err) throw err;
+//         produit = result;
+//         res.render("our_product", {
+//             produit:produit,
+//             fourni:fourni,
+//             rayon:rayon
+//         }) 
+//     });
+// }) 
 app.post('/addproduit', (req, res) => {
     var newproduit = req.body;
     let sql = `INSERT INTO produit ( quantite, prix, fourniseur_ref, code_rayon, name) VALUES ("${newproduit.quantite}", "${newproduit.prix}", "${newproduit.fourniseur_ref}", "${newproduit.code_rayon}", "${newproduit.name}")` 
@@ -121,6 +123,7 @@ app.post('/updateproduit/:id', (req, res) => {
         res.redirect('/our_product')
     })
 })
+//our_providers page
 app.get('/our_providers', (req, res)=>{
     db.query(' SELECT * FROM fourniseur', (err, result, fields) => {
         if (err) throw err;
@@ -154,6 +157,43 @@ app.post('/updateprovider/:id', (req, res) => {
      db.query(sql,(err, result) => {
         if (err) throw err;
         res.redirect('/our_providers') 
+        
+    })
+})
+//our_shelves page
+app.get('/our_shelves', (req, res)=>{
+    db.query(' SELECT * FROM rayon', (err, result, fields) => {
+        if (err) throw err;
+        shelves= result;
+        res.render("our_shelves", {
+            shelves:shelves
+        }) 
+        console.log(shelves)
+    });
+}) 
+app.post('/addshelve', (req, res) => {
+    var newpshelve = req.body;
+    let sql = `INSERT INTO rayon set ?` 
+   db.query(sql,newpshelve,(err, result) => {
+        if (err) throw err;
+        res.redirect('/our_shelves')  
+
+    })
+ })
+ app.get('/deleteshelves/:id', (req, res) => {
+    let sql = `DELETE FROM rayon  WHERE code_rayon = ${req.params.id}`;
+    let query = db.query(sql, (err, result) => {
+        if (err) throw err;
+        res.redirect('/our_shelves')
+    })
+}) 
+app.post('/updateshelves/:id', (req, res) => {
+    var newshelves = req.body;
+    var id = req.params.id;
+    let sql = `UPDATE rayon SET type = "${newshelves.type}", info_rayon = '${newshelves.info_rayon}' WHERE code_rayon = ${id}` ;
+     db.query(sql,(err, result) => {
+        if (err) throw err;
+        res.redirect('/our_shelves') 
         
     })
 })

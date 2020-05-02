@@ -1,0 +1,28 @@
+ <%- include('partials/head'); -%>
+<%- include('partials/nav'); -%>
+<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_shelves" data-whatever="@fat">ADD shelves</button></center> 
+ <div class="container-fluid">
+      <div class="row  row-cols-5  align-items-start ">
+       
+       
+
+  <% for (let i = 0; i < shelves.length; i++) { %>
+        
+     <div class="col"><div class="card" style="width: 22rem;">
+          <div class="card-header">
+                TYPE:   <%= shelves[i].type %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> INFO:  <%= shelves[i].info_rayon %> </li>
+          </ul>
+          <a href="/deleteshelves/<%= shelves[i].code_rayon %>" class="btn btn-primary">delete</a>
+           <button type="button" class="btn btn-primary btn-success add_butt" onClick='test2("<%= shelves[i].info_rayon %>",
+            "<%=shelves[i].type %>", <%=shelves[i].code_rayon%>)' data-toggle="modal" data-target="#update_shelves" data-whatever="@fat">UPDATE</button>
+        </div>
+        </div>
+   <% } %>
+      </div>
+    </div> 
+    <%- include('partials/modal_update_shelves'); -%>
+    <%- include('partials/modal_add_shelves'); -%>
+    <%- include('partials/foot'); -%>
