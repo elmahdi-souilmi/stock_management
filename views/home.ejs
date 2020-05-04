@@ -1,45 +1,57 @@
 <%- include('partials/head'); -%>
 <%- include('partials/nav'); -%>
 <div class="container-fluid">
-      <div class="row  row-cols-3  align-items-start ">
-         <div class="col">
+      <div class="row  row-cols-3  align-items-start " >
+         <div  class="col homeitems">
             <figure>
-                <img src="https://placebear.com/300/250" alt="Yourtext" />
-                <figcaption> valeur de notre stock : <%= stockval[0].stockval %> DH </figcaption> 
+                <img src="/page.jpg" alt="Yourtext" />
+                <figcaption  class="text"> the value of our<br> stock : <%= stockval[0].stockval %> DH </figcaption> 
+                 <figcaption class="icon"> <i class="fas fa-hand-holding-usd"></i> </figcaption>
+                <figcaption class="mark"> SOUK STORE </figcaption>
             </figure>
           </div>
 
-          <div class="col">
+          <div class="col homeitems">
             <figure>
-                <img src="https://placebear.com/300/250" alt="Yourtext" />
-                <figcaption> we have more than  <%= n_produit[0].n_produit %> product </figcaption> 
+                <img src="/page.jpg" alt="Yourtext" />
+                <figcaption class="text"> we have <%= n_produit[0].n_produit %> product</figcaption> 
+                <figcaption class="mark"> SOUK STORE </figcaption>
             </figure>
           </div>
-          <div class="col">
+          <div class="col homeitems">
             <figure>
-                <img src="https://placebear.com/300/250" alt="Yourtext" />
-                <figcaption>  our top produit n_1:   <%= top_produit[0].name %> with: <%= top_produit[0].quantite %> 
-                <br> n_2:   <%= top_produit[1].name %> with: <%= top_produit[1].quantite %> <br>
-                n_3:   <%= top_produit[2].name %> with: <%= top_produit[2].quantite %> <br>
+                <img src="/page.jpg" alt="Yourtext" />
+                <figcaption class="text"> top 3 product  <br>
+                1:  <%= top_produit[0].name %> with: <%= top_produit[0].quantite %> <br>
+                2:   <%= top_produit[1].name %> with: <%= top_produit[1].quantite %> <br>
+                3: <%= top_produit[2].name %> with: <%= top_produit[2].quantite %> <br>
                  </figcaption> 
+                 <figcaption class="mark"> SOUK STORE </figcaption>
             </figure>
           </div>
-            <div class="col">
+            <div class="col homeitems">
                 <figure>
-                    <img src="https://placebear.com/300/250" alt="Yourtext" />
-                    <figcaption>we have more than  <%= n_rayon[0].n_rayon %> rayon</figcaption> 
+                    <img src="/page.jpg" alt="Yourtext" />
+                    <figcaption class="text">we have more than <%= n_rayon[0].n_rayon %> rayon</figcaption> 
+                    <figcaption class="mark"> SOUK STORE </figcaption>
+                    <figcaption class="icon"> <i class="fas fa-hand-holding-usd"> bounjour</i> </figcaption>
+
+                    
+
                 </figure>
             </div>
-            <div class="col">
+            <div class="col homeitems">
                 <figure>
-                    <img src="https://placebear.com/300/250" alt="Yourtext" />
-                    <figcaption>we have more than  <%= n_fourni[0].n_fourni %> fourniseur</figcaption> 
+                    <img src="/page.jpg" alt="Yourtext" />
+                    <figcaption class="text">we have more than <%= n_fourni[0].n_fourni %> fourniseur</figcaption> 
+                    <figcaption class="mark"> SOUK STORE </figcaption>
                 </figure>
             </div>
-            <div class="col">
+            <div class="col homeitems">
                 <figure>
-                    <img src="https://placebear.com/300/250" alt="Yourtext" />
-                    <figcaption> the producte with less stock is <%= less_produit[0].name %> with just: <%= less_produit[0].quantite %> piece </figcaption> 
+                    <img src="/page.jpg" alt="Yourtext" />
+                    <figcaption class="text"> the producte with less stock is: <br> <%= less_produit[0].name %> with just: <%= less_produit[0].quantite %> piece </figcaption> 
+                    <figcaption class="mark"> SOUK STORE </figcaption>
                 </figure>
             </div>
        

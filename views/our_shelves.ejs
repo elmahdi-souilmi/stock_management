@@ -1,6 +1,6 @@
  <%- include('partials/head'); -%>
 <%- include('partials/nav'); -%>
-<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_shelves" data-whatever="@fat">ADD shelves</button></center> 
+<center> <button type="button" class="btn btn-primary btn-success btn1" data-toggle="modal" data-target="#add_shelves" data-whatever="@fat">ADD shelves</button></center> 
  <div class="container-fluid">
       <div class="row  row-cols-5  align-items-start ">
        
@@ -15,8 +15,8 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"> INFO:  <%= shelves[i].info_rayon %> </li>
           </ul>
-          <a href="/deleteshelves/<%= shelves[i].code_rayon %>" class="btn btn-primary">delete</a>
-           <button type="button" class="btn btn-primary btn-success add_butt" onClick='test2("<%= shelves[i].info_rayon %>",
+          <a href="/deleteshelves/<%= shelves[i].code_rayon %>" class="btn btn-primary btn2">delete</a>
+           <button type="button" class="btn btn-primary btn-success btn1" onClick='test2("<%= shelves[i].info_rayon %>",
             "<%=shelves[i].type %>", <%=shelves[i].code_rayon%>)' data-toggle="modal" data-target="#update_shelves" data-whatever="@fat">UPDATE</button>
         </div>
         </div>

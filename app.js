@@ -157,7 +157,7 @@ app.post('/updateprovider/:id', (req, res) => {
      db.query(sql,(err, result) => {
         if (err) throw err;
         res.redirect('/our_providers') 
-        
+         
     })
 })
 //our_shelves page

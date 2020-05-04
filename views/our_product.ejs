@@ -1,6 +1,6 @@
  <%- include('partials/head'); -%>
 <%- include('partials/nav'); -%>
-<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_produit" data-whatever="@fat">ADD produit</button></center> 
+<center> <button type="button" class="btn btn-primary btn-success btn1" data-toggle="modal" data-target="#add_produit" data-whatever="@fat">ADD produit</button></center> 
  <div class="container-fluid">
       <div class="row  row-cols-5  align-items-start ">
        
@@ -18,8 +18,8 @@
             <li class="list-group-item"> type of aisle is : <%= produit[i].type %> </li>
             <li class="list-group-item"> provided by : <%= produit[i].nom %> </li>
           </ul>
-          <a href="/deleteproduit/<%= produit[i].code_produit %>" class="btn btn-primary">delete</a>
-          <button type="button" class="btn btn-primary btn-success add_butt"  data-toggle="modal" onClick='test("<%= produit[i].prix %>",
+          <a href="/deleteproduit/<%= produit[i].code_produit %>" class="btn btn-primary btn2">delete</a>
+          <button type="button" class="btn btn-primary btn-success btn1"  data-toggle="modal" onClick='test("<%= produit[i].prix %>",
       "<%=produit[i].quantite %>", "<%=produit[i].name %>" , <%=produit[i].code_produit%>)' data-target="#update" data-whatever="@fat">UPDATE</button>
            
         </div>

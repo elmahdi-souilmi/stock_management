@@ -1,6 +1,6 @@
  <%- include('partials/head'); -%>
 <%- include('partials/nav'); -%>
-<center> <button type="button" class="btn btn-primary btn-success add_butt" data-toggle="modal" data-target="#add_providers" data-whatever="@fat">ADD provider</button></center> 
+<center> <button type="button" class="btn btn-primary btn-success btn1" data-toggle="modal" data-target="#add_providers" data-whatever="@fat">ADD provider</button></center> 
  <div class="container-fluid">
       <div class="row  row-cols-5  align-items-start ">
        
@@ -17,8 +17,8 @@
             <li class="list-group-item"> phone number : <%= fourniseur[i].n_telephone %> </li>
             <li class="list-group-item"> provided address : <%= fourniseur[i].adress%> </li>
           </ul>
-          <a href="/deletefourniseur/<%= fourniseur[i].fourniseur_ref %>" class="btn btn-primary">delete</a>
-          <button type="button" class="btn btn-primary btn-success add_butt" onClick='test1("<%= fourniseur[i].nom %>",
+          <a href="/deletefourniseur/<%= fourniseur[i].fourniseur_ref %>" class="btn btn-primary btn2">delete</a>
+          <button type="button" class="btn btn-primary btn-success btn1" onClick='test1("<%= fourniseur[i].nom %>",
           "<%=fourniseur[i].email %>", "<%=fourniseur[i].n_telephone %>" ,"<%=fourniseur[i].adress %>" , <%=fourniseur[i].fourniseur_ref%>)' data-toggle="modal" data-target="#update_providers" data-whatever="@fat">UPDATE</button>
 
         </div>
